@@ -1,15 +1,16 @@
 import random
 import pymysql
 import time
+from connectionbdd import connectionbdd
 
 
-connection = pymysql.connect(host="localhost",user="root",passwd="root",database="bddphrase" )
-cursor = connection.cursor()
+connect = connectionbdd()
+
 
 nombre_sujet=0
 total=0
-cursor.execute("select count(idTerme) from terme")
-ai= cursor.fetchone()
+connect[0].execute("select count(idTerme) from terme")
+ai= connect[0].fetchone()
 
 
 caracteres = "azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN0123456789"
@@ -31,14 +32,14 @@ while total != 100000:
             compteur += 1 
         result+=1
         print(result)
-        cursor.execute("INSERT INTO `terme`(`idTerme`, `libelle`, `idLangue`, `idTypeTerme`) values(%s,%s,1,3)", (str(result), mdp))
+        connect[0].execute("INSERT INTO `terme`(`idTerme`, `libelle`, `idLangue`, `idTypeTerme`) values(%s,%s,1,3)", (str(result), mdp))
         nombre_sujet+=1
-        connection.commit()
+        connect[1].commit()
     total+=nombre_sujet
     nombre_sujet=0
     tac=time.time()
     fichier.write("\nNombre sujet:"+str(total)+" Temps: "+ str(tac-tic) +"secondes")
-    
+
 stop = time.time()
 fichier2 = open("tempstotal.txt", "a")
 fichier2.write("\nCompléments, temps: "+str(stop-start)+" secondes")
@@ -46,4 +47,4 @@ fichier2.close()
 
 fichier.close()
 
-connection.close()
+connect[1].close()
