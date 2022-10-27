@@ -1,0 +1,34 @@
+
+Mots
+Nombre sujet:10000 Temps: 13.801380395889282secondes
+Nombre sujet:20000 Temps: 13.602399110794067secondes
+Nombre sujet:30000 Temps: 13.678786039352417secondes
+Nombre sujet:40000 Temps: 13.762073993682861secondes
+Nombre sujet:50000 Temps: 13.791334390640259secondes
+Nombre sujet:60000 Temps: 13.89199423789978secondes
+Nombre sujet:70000 Temps: 13.661196947097778secondes
+Nombre sujet:80000 Temps: 14.160138607025146secondes
+Nombre sujet:90000 Temps: 14.214112520217896secondes
+Nombre sujet:100000 Temps: 13.870915651321411secondes
+Verbes
+Nombre sujet:10000 Temps: 14.467095613479614secondes
+Nombre sujet:20000 Temps: 14.041814088821411secondes
+Nombre sujet:30000 Temps: 13.87418794631958secondes
+Nombre sujet:40000 Temps: 13.957421064376831secondes
+Nombre sujet:50000 Temps: 13.764837503433228secondes
+Nombre sujet:60000 Temps: 13.687785863876343secondes
+Nombre sujet:70000 Temps: 13.912596940994263secondes
+Nombre sujet:80000 Temps: 13.875354051589966secondes
+Nombre sujet:90000 Temps: 14.122029542922974secondes
+Nombre sujet:100000 Temps: 14.257370948791504secondes
+Compléments
+Nombre sujet:10000 Temps: 14.406849145889282secondes
+Nombre sujet:20000 Temps: 13.952873945236206secondes
+Nombre sujet:30000 Temps: 13.894347429275513secondes
+Nombre sujet:40000 Temps: 13.735568761825562secondes
+Nombre sujet:50000 Temps: 13.608215570449829secondes
+Nombre sujet:60000 Temps: 13.68998098373413secondes
+Nombre sujet:70000 Temps: 13.729154586791992secondes
+Nombre sujet:80000 Temps: 13.522040843963623secondes
+Nombre sujet:90000 Temps: 13.975539684295654secondes
+Nombre sujet:100000 Temps: 14.007444381713867secondes

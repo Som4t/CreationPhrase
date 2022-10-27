@@ -1,0 +1,4 @@
+
+Mots, temps: 138.4343318939209secondes
+Verbes, temps: 139.9604935646057 secondes
+Compléments, temps: 138.52201533317566 secondes
