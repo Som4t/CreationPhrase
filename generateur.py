@@ -1,28 +1,28 @@
 import random
 import pymysql
 import time
+from connectionbdd import connectionbdd
 
-connection = pymysql.connect(host="localhost",user="root",passwd="root",database="bddphrase" )
-cursor = connection.cursor()
+connect = connectionbdd()
 
 sujet = "Select * from terme where idTypeTerme = 1"
 verbe = "Select * from terme where idTypeTerme = 2"
 complement = "Select * from terme where idTypeTerme = 3"
 
 # Sujets
-cursor.execute(sujet)
-sujets = cursor.fetchall()
+connect[0].execute(sujet)
+sujets = connect[0].fetchall()
 
 # Verbes
-cursor.execute(verbe)
-verbes = cursor.fetchall()
+connect[0].execute(verbe)
+verbes = connect[0].fetchall()
 
 # Compléments
-cursor.execute(complement)
-complements = cursor.fetchall()
+connect[0].execute(complement)
+complements = connect[0].fetchall()
 
-cursor.execute("select count(idPhrase) from phrase")
-ai= cursor.fetchone()
+connect[0].execute("select count(idPhrase) from phrase")
+ai= connect[0].fetchone()
 result= int(ai[0])+1
 
 fichier = open("chronogenerateur.txt", "a")
@@ -32,15 +32,14 @@ start = time.time()
 for x in sujets:
 	for y in verbes:
 		for z in complements:
-			cursor.execute("INSERT INTO `phrase`(`idPhrase`, `idLangue`) VALUES (%s,1)", (str(result)))
-			# connection.commit()
-			cursor.execute("INSERT INTO `asso_2`(`idTerme`, `idPhrase`) VALUES (%s,%s)", (x[0], str(result)))
-			cursor.execute("INSERT INTO `asso_2`(`idTerme`, `idPhrase`) VALUES (%s,%s)", (y[0], str(result)))
-			cursor.execute("INSERT INTO `asso_2`(`idTerme`, `idPhrase`) VALUES (%s,%s)", (z[0], str(result)))
+			connect[0].execute("INSERT INTO `phrase`(`idPhrase`, `idLangue`) VALUES (%s,1)", (str(result)))
+			connect[0].execute("INSERT INTO `asso_2`(`idTerme`, `idPhrase`) VALUES (%s,%s)", (x[0], str(result)))
+			connect[0].execute("INSERT INTO `asso_2`(`idTerme`, `idPhrase`) VALUES (%s,%s)", (y[0], str(result)))
+			connect[0].execute("INSERT INTO `asso_2`(`idTerme`, `idPhrase`) VALUES (%s,%s)", (z[0], str(result)))
 			result+=1
 			print(str(result))
 			if result%200000==0:
-				connection.commit()
+				connect[1].commit()
 
 stop = time.time()
 fichier2 = open("generateurtotal.txt", "a")
@@ -50,5 +49,5 @@ fichier.close()
 
 
 
-connection.commit()
-connection.close()
+connect[1].commit()
+connect[1].close()
